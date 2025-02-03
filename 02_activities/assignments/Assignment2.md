@@ -55,7 +55,7 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 
 ```
 Response by Darshan Panesar
-I have also included both options in my diagram for reference. In type 1, when a new entry is made for a specifc customer (based on customer_id) you can have an associated timestamp and another column which simply indicated if it is the current or old version (even a binary column would suffice in my case I named it address_status). When a new address is added it will also add the timestamp and change the status - in doing so we will not overwrite and retain all record with the most current record indicated by both the date and the status columns. For type 2 we simply update (joining with the customer table if needed) the records based on the customer_id with no need to worry about the previous entry. 
+I have also included both options in my diagram for reference. In Type 2, when a new entry is made for a specific customer (based on customer_id) you can have an associated timestamp and another column which simply indicated if it is the current or old version (even a binary column would suffice in my case I named it address_status). When a new address is added it will also add the timestamp and change the status - in doing so we will not overwrite and retain all record with the most current record indicated by both the date and the status columns. For Type 1 we simply update (joining with the customer table if needed) the records based on the customer_id with no need to worry about the previous entry. 
 ```
 
 ***
