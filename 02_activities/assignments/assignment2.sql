@@ -38,31 +38,27 @@ each new market date for each customer, or select only the unique market dates p
 HINT: One of these approaches uses ROW_NUMBER() and one uses DENSE_RANK(). */
 
 -- THIS SHOWS IF CUSTOMER VISITS MULTIPLE TIMES IN A DAY THE SAME RANK IS ASSIGNED TO EVERY ONE OF THE SAME MARKET DATES THE CUSTOMER SHOPPED ON
-SELECT *
 
-FROM(
-	SELECT
-	customer_id,
-	market_date,
+SELECT
+customer_id,
+market_date,
 	
-	DENSE_RANK()OVER(PARTITION BY customer_id ORDER BY market_date DESC) as visit_rank
+DENSE_RANK()OVER(PARTITION BY customer_id ORDER BY market_date DESC) as visit_rank
 
-	FROM customer_purchases 
-)x
+FROM customer_purchases 
+
 
 	
 -- THIS ASSIGNED RANK BASED ON MOST RECENT UNIQUE MARKET DATE REGARDLESS OF NUMBER OF VISITS ON THAT SPECIFIC DATE
-SELECT *
 
-FROM(
-	SELECT DISTINCT
-	customer_id,
-	market_date,
+SELECT DISTINCT
+customer_id,
+market_date,
 	
-	ROW_NUMBER()OVER(PARTITION BY customer_id ORDER BY market_date DESC) as visit_rank
+ROW_NUMBER()OVER(PARTITION BY customer_id ORDER BY market_date DESC) as visit_rank
 
-	FROM customer_purchases 
-)x
+FROM customer_purchases 
+
 
 /* 2. Reverse the numbering of the query from a part so each customer’s most recent visit is labeled 1, 
 then write another query that uses this one as a subquery (or temp table) and filters the results to 
@@ -273,7 +269,7 @@ WHERE (product_id =
 AND snapshot_timestamp = 
 (SELECT snapshot_timestamp FROM old_record
 
-))
+)))
 
 
 /* --TO DO THIS WITHOUT THE CTE - RISKIER
