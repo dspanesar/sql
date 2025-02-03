@@ -14,10 +14,10 @@
     * Open a private window in your browser. Copy and paste the link to your pull request into the address bar. Make sure you can see your pull request properly. This helps the technical facilitator and learning support staff review your submission easily.
 
 Checklist:
-- [ ] Create a branch called `assignment-two`.
-- [ ] Ensure that the repository is public.
-- [ ] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
-- [ ] Verify that the link is accessible in a private browser window.
+- [x] Create a branch called `assignment-two`.
+- [x] Ensure that the repository is public.
+- [x] Review [the PR description guidelines](https://github.com/UofT-DSI/onboarding/blob/main/onboarding_documents/submissions.md#guidelines-for-pull-request-descriptions) and adhere to them.
+- [x] Verify that the link is accessible in a private browser window.
 
 If you encounter any difficulties or have questions, please don't hesitate to reach out to our team via our Slack. Our Technical Facilitators and Learning Support staff are here to help you navigate any challenges.
 
@@ -54,7 +54,8 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+Response by Darshan Panesar
+I have also included both options in my diagram for reference. In Type 2, when a new entry is made for a specific customer (based on customer_id) you can have an associated timestamp and another column which simply indicated if it is the current or old version (even a binary column would suffice in my case I named it address_status). When a new address is added it will also add the timestamp and change the status - in doing so we will not overwrite and retain all record with the most current record indicated by both the date and the status columns. For Type 1 we simply update (joining with the customer table if needed) the records based on the customer_id with no need to worry about the previous entry. 
 ```
 
 ***
@@ -182,5 +183,20 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
+Response by Darshan Panesar
+
+The premise of this article is centered on the point that humans are at the foundation of machine learning and AI. For example, the article notes that at the fundamental stage the data that machine learning models train on is first handled by humans (e.g., naming of objects such as apple or not). In our current day and age, we are building and updating models on data that arrives from a while range of sources. Herein is the issue. We need to be extremely critical of our data, especially that which is being used to build our technological advances such as in ML/AI.
+
+The moderation of information based on where it comes from, whether its correct, and/or whether other factors such as biases that proliferate information are present. One good example is during the early days an even now if you search on ChatGPT you are likely to get in accurate information or nonsensical information. On the other hand, as the article mentions the risks can be significant (e.g.,  the ImageNet Roulette labels) if incorrect or problematic information is used to facilitate developing technologies.
+
+If that problem information does leak in, we put ourselves at ethical risks that we are perhaps implicating adopting malicious rhetoric that can affect important decisions. One example could be models used by law enforcement which, if affected by biases present at the data level (i.e., when the data was labelled or issues with the data at the human level) we can adopt these biases to judgements, inappropriate categorization or labelling of individuals and more.
+
+Another ethical consideration is once these issues are engrained are we correcting them or sampling stacking on them with new information. Boykis mentions their efforts to correct these issues with data (citing the case of  disabled downloads of the full ImageNet data and the remedy of the data). However, how reasonable is this? We have SOOOOO MUCH DATA. Rather than remedying the data level I think ethical approach could be multi-fold. First, I think we need to be critical of our sources of data, where does our data come from. Are we getting our data from reputable sources? Are these sources unbiased or clean?
+
+Second, we should be critical of the validity or integrity of the data. Personally, I have used M-Turk for research and found that individuals completing tasks often just want to complete the tasks and do not care about the content. This results in data where surveys have the answer A for every question. In our case we try to incorporate trick questions i.e., attention grabbers to try and ensure data integrity. This is one way we can ensure that data is at least somewhat valid.
+
+Lastly, this often we already do to some extent but we should both be critical of and when possible remedy the information we receive from tech such as LLM or AI. 
+In doing so I think we will make important ethical considerations for the advancement and use of technology. We will also be creating more robust and valid models. 
+Lastly, as an ending piece I wanted to also touch on the notion that AI, robots, etc. can’t do everything. This applies to many end products such as cloths. Therefore, I think the ethical take away here is that we should be appreciative and mindful of this notion.
+
 ```
